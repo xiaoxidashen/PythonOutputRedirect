@@ -24,7 +24,7 @@ class OutputRedirect(IO):
         return 0
 
     def __getattribute__(self, name):
-        if name in OutputRedirect.__dict__.keys():
+        if name in ['origin_host', 'origin_attr', 'origin_obj', 'f', 'write', '__enter__', '__exit__']:
             return super().__getattribute__(name)
         return self.origin_obj.__getattribute__(name)
 
